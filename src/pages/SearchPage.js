@@ -54,7 +54,8 @@ function SearchPage() {
     }, []);
 
 
-    async function handleButtonClick() {
+    async function handleFormSubmit(e) {
+        e.preventDefault();
         setLoading(true);
         setError(false);
         try {
@@ -72,6 +73,7 @@ function SearchPage() {
     }
 
     function handleClear() {
+        setError(false);
         if (person) {
             slideUpAnimation.current.reverse();
             revealAnimation.current.reverse();
@@ -87,10 +89,12 @@ function SearchPage() {
                         <Title>Digita tu cédula para buscar tu información</Title>
                         {loading && <Spin />}
                     </TitleContainer>
-                    <SearchContainer>
-                        <Input name="search" showClear onClear={handleClear} validateStatus={error ? 'error' : 'default'} width="100%" placeholder="Cédula" value={search} onChange={setSearch} />
-                        <Button type="secondary" onClick={handleButtonClick}>Buscar</Button>
-                    </SearchContainer>
+                    <form>
+                        <SearchContainer>
+                            <Input name="search" showClear onClear={handleClear} validateStatus={error ? 'error' : 'default'} width="100%" placeholder="Cédula" value={search} onChange={setSearch} />
+                            <Button type="secondary" htmlType="submit" onClick={handleFormSubmit}>Buscar</Button>
+                        </SearchContainer>
+                    </form>
                 </Card>
                 <div style={{ opacity: 0 }} ref={profileRef}>
                     <PersonDetail person={person} />
