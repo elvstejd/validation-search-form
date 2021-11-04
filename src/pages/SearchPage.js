@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { getPersonById } from '../services';
 import PersonDetail from '../PersonDetail';
 import gsap from 'gsap';
+import validateDominicanId from 'validacion-cedula-dominicana';
 
 const Center = styled.div`
     padding-top: 30vh;
@@ -56,10 +57,20 @@ function SearchPage() {
 
     async function handleFormSubmit(e) {
         e.preventDefault();
-        setLoading(true);
         setError(false);
+
+        const cedula = search.trim().replace(/-/g, "");
+
+        // validar cédula 
+        if (!validateDominicanId(cedula)) {
+            setError(true);
+            Toast.error({ content: 'La cédula no tiene un formato válido', duration: 4 });
+            return;
+        }
+
         try {
-            setPerson(await getPersonById(search));
+            setLoading(true);
+            setPerson(await getPersonById(cedula));
             if (!person) {
                 slideUpAnimation.current.play();
                 revealAnimation.current.play();
