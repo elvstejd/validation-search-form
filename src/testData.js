@@ -1,7 +1,7 @@
 export const people = [
     {
         nombre: 'Elvis Tejeda',
-        cedula: '1',
+        cedula: '001-0000000-1',
         pais: 'República Dominicana',
         provincia: 'Azua',
         edad: '19',
@@ -10,8 +10,8 @@ export const people = [
         estadoCivil: 'Soltero'
     },
     {
-        nombre: 'Joel Arias',
-        cedula: '2',
+        nombre: 'Miguel Ramirez',
+        cedula: '001-0000000-8',
         pais: 'República Dominicana',
         provincia: 'San Cristobal',
         edad: '26',
