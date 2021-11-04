@@ -23,7 +23,7 @@ function PersonDetail({ person }) {
                     <Descriptions row size="medium">
                         <tr>
                             <td>
-                                <StyledAvatar src="https://thispersondoesnotexist.com/image" size="extra-large" />
+                                <StyledAvatar src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e5357fcc99250d0c6c8a111_peep-54.svg" size="extra-large" />
                             </td>
                         </tr>
                         <Descriptions.Item itemKey="Nombre">{person.nombre || 'null'}</Descriptions.Item>
