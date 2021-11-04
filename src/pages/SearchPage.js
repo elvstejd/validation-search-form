@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Card, Input, Spin, Toast } from '@douyinfe/semi-ui';
+import { Button, Card, Input, Spin, Toast, Typography } from '@douyinfe/semi-ui';
 import { useState, useEffect, useRef } from 'react';
 import { getPersonById } from '../services';
 import PersonDetail from '../PersonDetail';
@@ -15,6 +15,7 @@ const Center = styled.div`
 const SearchContainer = styled.div`
     display: flex;
     gap: 1rem;
+    margin-bottom: 1rem;
 `;
 
 const Title = styled.h3`
@@ -105,6 +106,7 @@ function SearchPage() {
                             <Input name="search" showClear onClear={handleClear} validateStatus={error ? 'error' : 'default'} width="100%" placeholder="Cédula" value={search} onChange={setSearch} />
                             <Button type="secondary" htmlType="submit" onClick={handleFormSubmit}>Buscar</Button>
                         </SearchContainer>
+                        <Typography.Text type="quaternary">Pista: <Typography.Text copyable>00116454281</Typography.Text></Typography.Text>
                     </form>
                 </Card>
                 <div style={{ opacity: 0 }} ref={profileRef}>
